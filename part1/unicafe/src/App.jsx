@@ -22,18 +22,21 @@ const App = () => {
     setGood(newGood)
     setAll(newAll)
     setPositive(newGood/newAll*100)
+    setAverage((newGood - bad)/newAll)
   }
   const handleBadClick = () => {
-    setBad(bad + 1)
+    const newBad = bad + 1
+    setBad(newBad)
     const newAll = all + 1;
     setAll(newAll)
     setPositive(good/newAll*100)
+    setAverage((good-newBad)/newAll)
   }
   const handleNeutralClick = () => {
     setNeutral(neutral + 1)
     const newAll = all + 1;
     setAll(newAll)
-    setPositive(good/newAll*100)
+    setPositive((good-bad)/newAll*100)
   }
 
 
@@ -52,7 +55,7 @@ const App = () => {
         <div>Bad: {bad}</div>
         <div>All: {all}</div>
         <div>Positive: {positive}%</div>
-        <div>All: {all}</div>
+        <div>Average: {average}</div>
       </div>
     </div>
   )
